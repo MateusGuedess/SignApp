@@ -3,13 +3,11 @@ import { useAuth } from '../../provider/auth'
 import { Container } from './styles';
 import { Link } from 'react-router-dom'
 
-function SignUp() {
+function SignIn() {
     const { state, dispatch } = useAuth()
     const [userRegister, setUserRegister] = useState({
-        name: "",
         email: "",
         password: "",
-        confirmPassword: ""
     })
 
     const handleSignUp = (evt) => {
@@ -19,7 +17,6 @@ function SignUp() {
 
         console.log(userRegister);
         dispatch({user: {
-            name: userRegister.name,
             email: userRegister.email,
             password: userRegister.password
         }});
@@ -30,25 +27,19 @@ function SignUp() {
       <Container>
           <form className="signIn" onSubmit={handleSignUp}>
             <fieldset>
-                <legend>Sign Up</legend>
-                <p>
-                    <input placeholder="Name" type="text"  name="name" id="name" value={userRegister.name} onChange={e => setUserRegister({...userRegister, name: e.target.value})}/>
-                </p>
+                <legend>Sign In</legend>
                 <p>
                     <input placeholder="Email" type="email"  email="email" id="email" value={userRegister.email} onChange={e => setUserRegister({...userRegister, email: e.target.value})}/>
                 </p>
                 <p>
                     <input placeholder="Password" type="password"  password="password" id="password" value={userRegister.password} onChange={e => setUserRegister({...userRegister, password: e.target.value})}/>
                 </p>
-                <p>
-                    <input placeholder="Confirm Password" type="password"  password="confirmPassword" id="confirmPassword" value={userRegister.confirmPassword} onChange={e => setUserRegister({...userRegister, confirmPassword: e.target.value})}/>
-                </p>
             </fieldset>
-            <button type="submit">Sign Up</button>
-            <Link to="/signin">Already a member? Sign In</Link>
+            <button type="submit">Sign In</button>
+            <Link to="/signin">Not a member? Sign Up</Link>
           </form>
       </Container>
   );
 }
 
-export default SignUp
+export default SignIn
