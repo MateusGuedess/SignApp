@@ -8,12 +8,14 @@ import {
 
 import SignUp from './components/SignUp'
 import SignIn from './components/SignIn'
+import Home from './components/Home'
   
 const Routes = () => (
       <Router>
           <Switch>
             <Route exact path='/signup' component={SignUp}/>
             <Route exact path='/signin' component={SignIn}/>
+            <Route exact path='/home' component={Home}/>
           </Switch>
       </Router>
 )
